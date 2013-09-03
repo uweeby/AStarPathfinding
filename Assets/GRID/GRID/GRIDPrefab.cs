@@ -10,14 +10,8 @@ public class GRIDPrefab : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		
 		//Assign GRIDTerrain Object:
 		gridTerrain = Terrain.activeTerrain.GetComponent("GRIDTerrain") as GRIDTerrain;
-		
-		foreach (Transform child in transform) {
-			//Disable their mesh renderers
-            child.renderer.enabled = false;
-		}
 	}
 	
 	// Update is called once per frame
@@ -25,11 +19,11 @@ public class GRIDPrefab : MonoBehaviour {
 	{
 		if(!init)
 		{
-			Initialize();	
+			LateInitialize();	
 		}
 	}
-	
-	void Initialize()
+
+    void LateInitialize()
 	{
 		//Find all the children cubes
 		foreach (Transform child in transform) {
